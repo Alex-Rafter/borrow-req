@@ -46,7 +46,7 @@
                 console.log(this.lendItems)
             },
             formForm(item) {
-                    fetch(`https://docs.google.com/forms/d/e/1FAIpQLSfxOEOVuiuAWuz2ItL08MyeFDXUGBWHCWOj8My8isYBX0ilGQ/formResponse?entry.664743125=${item.title}&entry.1206457380=${item.description}&entry.430716838=Another%20Url%20Example1`)
+                    fetch(`https://docs.google.com/forms/d/e/1FAIpQLSfxOEOVuiuAWuz2ItL08MyeFDXUGBWHCWOj8My8isYBX0ilGQ/formResponse?entry.664743125=${item.title}&entry.1206457380=${item.description}&entry.430716838=Another%20Url%20Example1`, {mode:'no-cors'})
                 }
         }).mount('#root')        
         })     
