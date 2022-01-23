@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"> -->
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+    </style>
+    <title>Borrow My Stuff</title>
+</head>
+
+<body id="root">
+    <section v-scope v-cloak>
+        <h1>Borrow my Stuff</h1>
+        <div v-for="item in lendItems">
+            <div class="d-flex">
+                <h2>{{item.Title}}</h2>
+                <p>{{item.Description}}</p>
+                <p>{{item.Url}}</p>
+                <button @click="formForm(item)">Request</button>
+            </div>
+        </div>
+        <button @click="log">Click</button>
+    </section>
+
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/petite-vue?module'
+      
+        fetch('./data/lend.json')
+        .then(res => res.json())
+        .then(data => {
+            const lendItems = data
+            createApp({
+            lendItems : data,
+            log() {
+                console.log(this.lendItems)
+            },
+            formForm(item) {
+                    fetch(`https://docs.google.com/forms/d/e/1FAIpQLSfxOEOVuiuAWuz2ItL08MyeFDXUGBWHCWOj8My8isYBX0ilGQ/formResponse?entry.664743125=${item.title}&entry.1206457380=${item.description}&entry.430716838=Another%20Url%20Example1`)
+                }
+        }).mount('#root')        
+        })     
+      </script>
+</body>
+
+</html>
