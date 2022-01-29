@@ -2,7 +2,7 @@ import { createApp } from './petite-vue.js'
 import { LoanList } from './loan-list.js'
 import { Modal } from './modal.js'
 
-function fetchAndRender() {
+export function fetchAndRender() {
   fetch('./data/lend.json')
     .then((res) => res.json())
     .then((data) => {
@@ -19,5 +19,3 @@ function fetchAndRender() {
       }).mount()
     })
 }
-
-fetchAndRender()
