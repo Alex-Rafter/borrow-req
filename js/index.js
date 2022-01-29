@@ -1,5 +1,5 @@
 import { createApp } from './petite-vue.js'
-import { LoanList } from './Loan-list.js'
+import { LoanList } from './loan-list.js'
 import { Modal } from './modal.js'
 
 export function fetchAndRender() {
