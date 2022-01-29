@@ -15,6 +15,10 @@
             display: none;
         }
 
+        .loaned {
+            background-color: antiquewhite;
+        }
+
     </style>
     <title>Borrow My Stuff</title>
 </head>
@@ -23,11 +27,11 @@
     <section v-scope v-cloak>
         <h1>Borrow my Stuff</h1>
         <div v-for="item in lendItems">
-            <div class="d-flex">
+            <div v-bind:class="[!isDisabled(item.status) ? 'available' : 'loaned', 'd-flex']" >
                 <h2>{{item.title}}</h2>
                 <p>{{item.description}}</p>
                 <p>{{item.url}}</p>
-                <button @click="formForm(item)">Request</button>
+                <button @click="formForm(item)" :disabled='isDisabled(item.status)'>{{item.status}}</button>
             </div>
         </div>
         <button @click="log">Click</button>
@@ -42,11 +46,15 @@
             const lendItems = data
             createApp({
             lendItems : data,
-            log(x) {
-                console.log(x.title)
+            isDisabled(status) {
+                return (status === 'Request') ? false : true
             },
             formForm(item) {
+                    item.status = 'Requested'
                     fetch(`https://docs.google.com/forms/d/e/1FAIpQLSfxOEOVuiuAWuz2ItL08MyeFDXUGBWHCWOj8My8isYBX0ilGQ/formResponse?entry.664743125=${item.title}&entry.1206457380=${item.description}&entry.430716838=Another%20Url%20Example1`, {mode:'no-cors'}).then(console.log(item.title))
+                    .then(()=>{
+                        // item.status = 'Requested'
+                     })
                 }
         }).mount('#root')        
         })     
