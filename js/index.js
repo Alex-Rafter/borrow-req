@@ -1,4 +1,4 @@
-import { createApp } from './petite-vue.js'
+import { createApp } from 'petite-vue'
 import { LoanList } from './loan-list.js'
 import { Modal } from './modal.js'
 
@@ -19,3 +19,5 @@ export function fetchAndRender() {
       }).mount()
     })
 }
+
+fetchAndRender()     

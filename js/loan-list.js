@@ -1,4 +1,5 @@
-import {Modal} from './bs-esm-min.js'
+// import {Modal} from './bs-esm-min.js'
+import Modal from 'bootstrap/js/dist/modal';
 
 const loanListTemplate = /*html*/`
 <div v-for="item in lendItems">
