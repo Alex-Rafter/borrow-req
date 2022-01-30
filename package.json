@@ -4,7 +4,8 @@
   "description": "borrow my stuff repo",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build" : "./node_modules/.bin/esbuild ./js/index.js --bundle --minify --outfile=./dist/js/out.js"
   },
   "repository": {
     "type": "git",
