@@ -16,10 +16,12 @@
     <div id="root">
         <section >
             <h1>Borrow my Stuff</h1>
-            <div v-scope="LoanList({dataPassed : data})"></div>
-            <div v-scope="Modal()"></div>   
+            <div class="container">
+                <div v-scope="LoanList({dataPassed : data})"></div>    
+           </div>
         </section>
-            
+        <div v-scope="Modal()"></div>   
+ 
      </div>
     <!-- Modal -->
 

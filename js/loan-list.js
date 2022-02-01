@@ -3,16 +3,33 @@ import Modal from 'bootstrap/js/dist/modal';
 
 const loanListTemplate = /*html*/`
 <div v-for="item in lendItems">
-    <div v-bind:class="[!isDisabled(item.status) ? 'available' : 'loaned', 'd-flex']" >
-        <h2>{{item.title}}</h2>
-        <p>{{item.description}}</p>
-        <p>{{item.url}}</p>
-        <button class="btn btn-primary"  :disabled='isDisabled(item.status)' 
-        @click="makeModal(item)"
-        >{{item.btnText}}</button>
-    </div>
+<div class="card w-75 mx-auto bg-white my-2">
+<div class="flex-c card-header bg-white">
+    <h4 class="h2 mb-0 text-uppercase">{{item.title}}</h4>
+    <div class="flex-cen align-items-center">
+    <button href="#" class="btn btn-outline-dark" :disabled='isDisabled(item.status)' 
+    @click="makeModal(item)">{{item.btnText}}</button>
+  </div>
 </div>
+
+    <div class="card-body flex-c">
+      <div>
+        <h5 class="w-100 fs-5 fw-light card-title w-50">{{item.description}}</h5>
+        <p class="card-text fw-light w-100">
+          <a href="" class="text-dark text-decoration-none">
+          {{item.url}}
+          </a>
+        </p>
+      </div>
+
+     
+
+    </div>
+  </div>
+</div>
+
 `
+
 
 export function LoanList(props) {
     return {

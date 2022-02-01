@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build" : "./node_modules/.bin/esbuild ./js/index.js --bundle --minify --outfile=./dist/js/out.js"
+    "build" : "./node_modules/.bin/esbuild ./js/index.js --bundle --minify --outfile=./dist/js/out.js",
+    "sass" : "sass --watch scss/custom.scss:dist/css/styles.css"
   },
   "repository": {
     "type": "git",
